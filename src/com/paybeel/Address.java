@@ -7,7 +7,7 @@ private String landmark;
 private String street;
 private String city;
 private String state;
-private int pin;
+private String pin;
 public String getFlatNum() {
 	return flatNum;
 }
@@ -44,14 +44,15 @@ public String getState() {
 public void setState(String state) {
 	this.state = state;
 }
-public int getPin() {
+public String getPin() {
 	return pin;
 }
-public void setPin(int pin) {
+public void setPin(String pin) {
 	this.pin = pin;
 }
+
 public Address(String flatNum, String buildingName, String landmark, String street, String city, String state,
-		int pin) {
+		String pin) {
 	super();
 	this.flatNum = flatNum;
 	this.buildingName = buildingName;

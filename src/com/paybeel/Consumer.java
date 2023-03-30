@@ -5,12 +5,12 @@ public class Consumer {
 	private String lastName;
 	private Address address;
 	private String email;
-	private int mobileNumber;
+	private String mobileNumber;
 	private String userName;
 	private String password;
 	//address
-	public String getAddress() {
-		return address.toString();
+	public Address getAddress() {
+		return address;
 	}
 	public void setAddress(Address address) {
 		this.address = address;
@@ -23,10 +23,10 @@ public class Consumer {
 		this.email = email;
 	}
 	//mobile
-	public int getMobileNumber() {
+	public String getMobileNumber() {
 		return mobileNumber;
 	}
-	public void setMobileNumber(int mobileNumber) {
+	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 	//firstname 
@@ -59,9 +59,28 @@ public class Consumer {
 		return password;
 	}
 	
+	public String toString() {
+		return this.firstName+":"+this.lastName+":"+this.address.toString()+":"
+	+this.email+":"+this.mobileNumber+":"+this.userName+":"+this.password;
+	}
 	
 	
-	
+	public Address addressSetter(String address) {
+		String[] str=address.split(",");
+		Address adr=new Address(str[0],str[1],str[2],str[3],str[4],str[5],str[6]);
+		return  adr;
+	}
+	public Consumer(String firstName, String lastName, String address, String email,String mobileNumber, String userName,
+			String password) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address =addressSetter(address);
+		this.email = email;
+		this.mobileNumber = mobileNumber;
+		this.userName = userName;
+		this.password = password;
+	}
 	
 
 	
