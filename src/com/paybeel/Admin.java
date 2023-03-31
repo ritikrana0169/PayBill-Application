@@ -1,4 +1,5 @@
 package com.paybeel;
+import java.io.IOException;
 import java.util.Scanner;
 public class Admin {
 
@@ -8,7 +9,7 @@ public class Admin {
 	boolean logginStatus=false;
 	boolean loop=true;
 	
-	public void adminLoginSuccess() {
+	public void adminLoginSuccess() throws IOException {
 		
 		logginStatus=true;
 		while(logginStatus) {
@@ -30,6 +31,8 @@ public class Admin {
 				break;
 			case 2:
 				System.out.println("View all consumer");
+				DataClass dC=new DataClass();
+				dC.showAllConsumer();
 				break;
 			case 3:
 				System.out.println("View all bill of consumer ");
@@ -48,7 +51,7 @@ public class Admin {
 		}
 		}
 	
-	public void adminMethod() {
+	public void adminMethod() throws IOException {
 		 Admin admin=new Admin();
 		System.out.println(" ------------------");
 		System.out.println("| Admin User Name |");

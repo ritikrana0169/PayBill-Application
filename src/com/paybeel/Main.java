@@ -26,8 +26,7 @@ public static void main(String[] args) {
 				System.out.println("Program Exited");
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
-//			System.out.println(e);
+
 			
 			System.err.println("Program Ended");
 			loop=false;
