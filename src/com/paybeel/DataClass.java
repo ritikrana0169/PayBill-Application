@@ -8,7 +8,7 @@ public class DataClass {
 	
 	
 public void showAllConsumer() throws IOException {
-	FileReader f=new FileReader("C:\\Users\\Ritik Rana\\Desktop\\holy-whip-3101\\resourse\\df4.txt");
+	FileReader f=new FileReader("C:\\Users\\Ritik Rana\\Desktop\\holy-whip-3101\\resourse\\newConsumer.txt");
 	BufferedReader br=new BufferedReader(f);
 	String line=br.readLine();
 	

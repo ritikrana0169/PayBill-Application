@@ -1,13 +1,15 @@
 package com.paybeel;
 
+import java.util.Scanner;
+
 public class Consumer {
 	private String firstName;
 	private String lastName;
 	private Address address;
 	private String email;
 	private String mobileNumber;
-	private String userName;
-	private String password;
+	private String userName="ToBeAssigned";
+	private String password="ToBeAssigned";
 	//address
 	public Address getAddress() {
 		return address;
@@ -64,6 +66,11 @@ public class Consumer {
 	+this.email+":"+this.mobileNumber+":"+this.userName+":"+this.password;
 	}
 	
+	public String toStringSecure() {
+		return "Full Name:- "+this.firstName+" "+this.lastName+"\nADDRESS :- "+this.address.toString()+"\nEMAIL :-"
+	+this.email+"\n MOBILE NO. :- "+this.mobileNumber+"\n";
+	}
+	
 	
 	public Address addressSetter(String address) {
 		String[] str=address.split(",");
@@ -82,7 +89,24 @@ public class Consumer {
 		this.password = password;
 	}
 	
-
-	
-	
+public void consumerEntry() {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter First Name");
+	this.firstName=sc.nextLine();
+	System.out.println("Enter Last Name");
+	this.lastName=sc.nextLine();
+	System.out.println("Enter Address");
+	Address addr=new Address();
+	addr.addressEntry();
+//	sc.close();
+	this.address=addr;
+//	Scanner dc=new Scanner(System.in);
+	System.out.println("Enter Email");
+	this.email=sc.nextLine();
+	System.out.println("Enter Mobile No");
+	this.mobileNumber=sc.nextLine();
+//	dc.close();
 }
+	public Consumer() {
+	
+	}}

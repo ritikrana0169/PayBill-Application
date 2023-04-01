@@ -1,5 +1,7 @@
 package com.paybeel;
 
+import java.util.Scanner;
+
 public class Address {
 private String flatNum;
 private String buildingName;
@@ -50,7 +52,9 @@ public String getPin() {
 public void setPin(String pin) {
 	this.pin = pin;
 }
-
+public Address() {
+	
+}
 public Address(String flatNum, String buildingName, String landmark, String street, String city, String state,
 		String pin) {
 	super();
@@ -66,6 +70,23 @@ public Address(String flatNum, String buildingName, String landmark, String stre
 public String toString() {
 	return this.flatNum+","+this.buildingName+","+this.landmark+","+this.street+","+this.city+","+this.state+","+this.pin;
 }
-	
+public void addressEntry() {
+	Scanner mc=new Scanner(System.in);
+	System.out.println("Enter Flat no");
+	this.flatNum=mc.nextLine();
+	System.out.println("Building Name");
+	this.buildingName=mc.nextLine();
+	System.out.println("Enter Landmark");
+	this.landmark=mc.nextLine();
+	System.out.println("Enter Street");
+	this.street=mc.nextLine();
+	System.out.println("Enter City");
+	this.city=mc.nextLine();
+	System.out.println("Enter State");
+	this.state=mc.nextLine();
+	System.out.println("Enter Pin");
+	this.pin=mc.nextLine();
+//	mc.close();
+}
 	
 }
