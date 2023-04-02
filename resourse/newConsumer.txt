@@ -1,0 +1,2 @@
+Ritik:rana:44/3,Rocky,PowerGrid,Dungars,Baraut,UttarPradesh,250611:Ritik@gmail.com:9634843557::12/12/9999:ToBeAssigned:ToBeAssigned:inactive
+Sachin:Verma:00/1,Gokul1,hanuman Mandir,GokulDham,Delhi,Delhi,22222:Sachin@gmail.com:98765789::12/12/9999:ToBeAssigned:ToBeAssigned:inactive
