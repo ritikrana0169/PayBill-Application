@@ -18,9 +18,10 @@ public class Admin {
 	
 
 	
-	public void adminLoginSuccess() throws IOException {
+	public boolean adminLoginSuccess() throws IOException {
 		boolean isAvail=!conHandler.newConsumerList.isEmpty();
 		logginStatus=true;
+		boolean isExit =false;
 		while(logginStatus) {
 			
 			System.out.println("------------Admin Panel----------------");
@@ -33,6 +34,9 @@ public class Admin {
         	System.out.println("|   5 : Register New Consumer         |");
 			}
 			System.out.println("|   6 : Back                          |");
+			System.out.println("|   7 : Generate Bill         |");
+			System.out.println("|   8 : View All The Bills Paid & pending        |");
+			System.out.println("|   0 : Exit                     |");
 			System.out.println("---------------------------------------");
 			
 			Scanner sc=new Scanner (System.in);
@@ -42,33 +46,57 @@ public class Admin {
 			case 5:
 				if(isAvail) {
 					System.out.println("New Register");
-					conHandler.newConsumerRegister();
+					logginStatus=  conHandler.newConsumerRegister();
+					if(!logginStatus) {
+						isExit=true;
+					}
 				}else {
 					System.out.println("No New consumer found");
 				}
 				break;
 			case 1:
-				System.out.println("View all consumer");
+		
+				conHandler.printAllConsumer();
 				
 				break;
 			case 2:
-				System.out.println("View all bill of consumer ");
+				conHandler.viewAllBillOfConsumer();
 				break;
 			case 3:
-				System.out.println("view all bills with status");
+				conHandler.viewAllBill();
 				break;
 			case 4:
-				System.out.println("Delete consumer");
+				conHandler.deleteConsumer();
+				break;
+			case 7:
+				conHandler.generateBillForAllConsumer();
+				System.out.println("All Bills Generated");
+				break;
+			case 8:
+				conHandler.viewAllBillPaidAndPending();
 				break;
 			case 6:
 				System.out.println("Back");
 				logginStatus=false;
 				
-				break;}
+				break;
+				default:
+					conHandler.consumerFileSaver("resourse//newConsumer.txt");
+					conHandler.consumerFileSaver("resourse//Consumer.txt");
+					isExit=true;
+					logginStatus=false;
+					}
 		}
+		if(isExit){
+			return logginStatus;
+		}
+		else {
+			return true;
+		}
+		
 		}
 	
-	public void adminMethod(ConsumerHandler conHandler) throws IOException {
+	public boolean adminMethod(ConsumerHandler conHandler) throws IOException {
 		
 		System.out.println(" ------------------");
 		System.out.println("| Admin User Name |");
@@ -83,12 +111,14 @@ public class Admin {
 			String inputUserPassword=sc.nextLine();
 			if(inputUserPassword.equals(this.adminPassword)) {
 				this.conHandler=conHandler;
-				this.adminLoginSuccess();
+				return adminLoginSuccess();
 			}else {
 				System.out.println("Wrong Password");
+				return true;
 			}
 		}else {
 			System.out.println("Wrong Admin User Name");
+			return true;
 		}
 	}
 	

@@ -26,7 +26,7 @@ public static void main(String[] args) {
 				
 				Admin admin = new Admin();
 				
-				admin.adminMethod(consumerHandler);
+				loop = admin.adminMethod(consumerHandler);
 			}else if(response==2) {
 				loop=consumerHandler.consumerFunction();
 			}else {
